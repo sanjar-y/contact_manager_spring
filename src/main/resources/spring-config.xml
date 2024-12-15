@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="contactController" class="conact_manager.controller.ContactController">
+        <property name="contactService" ref="contactService"/>
+        <property name="scannerService" ref="scannerService"/>
+    </bean>
+
+    <bean id="contactService" class="conact_manager.service.ContactService">
+        <property name="contactRepository" ref="contactRepository"/>
+    </bean>
+
+    <bean id="scannerService" class="conact_manager.service.ScannerService"/>
+    <bean id="contactRepository" class="conact_manager.repository.ContactRepository"/>
+</beans>
